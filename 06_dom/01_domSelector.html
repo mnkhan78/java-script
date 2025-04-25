@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Selector</title>
 
     <style>
-        .bg-black{
+        .bg-black {
             background-color: #212121;
             color: #fff;
         }
     </style>
 </head>
+
 <body class="bg-black">
-    <div >
-        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+    <div>
+        <h1 id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
         <h2>Lorem ipsum dolor sit.</h2>
@@ -30,9 +32,34 @@
     </div>
 </body>
 <script>
-    // document.getElementById('title').style.backgroundColor = 'red'
-    // let elem = document.getElementById('title')
-    // elem.style.backgroundColor = 'purple'
+    document.getElementById('title').style.backgroundColor = 'red'
+    let elem = document.getElementById('title')
+    elem.style.backgroundColor = 'purple'
+
+    const elems = document.querySelectorAll('h2') //give NodeList of all <h2> available
+    console.log(elems)
+    console.log(elems[0].nodeName); //gives H2
+    console.log(elems[0].tagName); //gives H2
     
+    
+    console.log("1st h2", elems[0]); //can access as array but not an array so we can apply all methods of array on this...
+
+    const elem1 = document.querySelector('h2') //gives 1st h2
+    console.log("1st H2",elem1);
+    elem1.style.backgroundColor = 'red'
+    
+    //selecting 'id' with querySelector
+    const ids = document.querySelector('#title')
+    console.log("id with querySelector", ids); 
+
+    console.log("innerHTML:", ids.innerHTML);
+    //output: DOM learning on Chai aur code <span style="display: none;">test text</span>
+
+    console.log("textContent:", ids.textContent);
+    //output: DOM learning on Chai aur code test text --> only text
+    
+    
+
 </script>
+
 </html>
