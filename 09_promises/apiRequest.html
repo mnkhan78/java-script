@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Request</title>
+</head>
+
+<body style="background-color: #212121; color: azure;">
+    <h2>Api Request through XMLHttpRequest</h2>
+    <ul>
+        <li>0 UNSENT | Client has been created. open() not called yet.</li>
+        <li>1 OPENED | open() has been called.</li>
+        <li>2 HEADERS_RECEIVED | send() has been called, and headers and status are available.</li>
+        <li>3 LOADING | Downloading; responseText holds partial data.</li>
+        <li>4 DONE The operation is complete.</li>
+    </ul>
+    <h3 id="user-id"></h3>
+    <p id="user-name"></p>
+    <p id="user-email"></p>
+
+
+
+
+</body>
+<script>
+    const requestURL = 'https://jsonplaceholder.typicode.com/users'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestURL)
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            // console.log(data);
+
+            // console.log(typeof data);
+
+            console.log(data[0].name);
+
+            data.forEach(user => {
+                console.log(user.id, user.name, user.username);
+                
+            });
+            
+            document.getElementById('user-id').innerHTML = data[0].id
+            document.getElementById('user-name').innerHTML = data[0].name
+            document.querySelector('#user-email').innerHTML = data[0].email
+
+        }
+    }
+
+    xhr.send();
+</script>
+
+</html>
