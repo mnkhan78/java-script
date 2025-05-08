@@ -24,13 +24,20 @@
     // promise.catch(alert)
 
     //in this case only .then function will run and rest after this will be ignored...
-
     // let promise = new Promise(function (resolve, reject) {
     //     setTimeout(() => resolve("done"), 1000);
 
     //     setTimeout(() => reject("somethinf fishy..."), 2000)
     // });
     // promise.then (alert).catch(alert)
+
+    function delay (ms) {
+        let promise = new Promise ( (resolve, reject) => {
+            setTimeout(resolve, ms)
+        })
+        return promise
+    }
+    delay(5000).then(()=> console.log("hidden face"))
 </script>
 
 </html>
