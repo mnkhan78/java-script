@@ -9,6 +9,7 @@
 
 <body style="background-color: #212121; color: azure;">
     <h2>Api Request through XMLHttpRequest</h2>
+    <p>We have 4 XHR... </p>
     <ul>
         <li>0 UNSENT | Client has been created. open() not called yet.</li>
         <li>1 OPENED | open() has been called.</li>
@@ -16,6 +17,7 @@
         <li>3 LOADING | Downloading; responseText holds partial data.</li>
         <li>4 DONE The operation is complete.</li>
     </ul>
+    <p>when the XHR = 4 that means request is completed.</p>
     <h3 id="user-id"></h3>
     <p id="user-name"></p>
     <p id="user-email"></p>
@@ -38,6 +40,7 @@
 
             console.log(data[0].name);
 
+            //printing each user's details
             data.forEach(user => {
                 console.log(user.id, user.name, user.username);
                 
